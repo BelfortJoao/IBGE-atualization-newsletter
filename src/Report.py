@@ -1,8 +1,8 @@
 from fpdf import FPDF
 from datetime import date
-from Graphs_plot import populacao
+from Graphs_plot import Populacao
 
-pop = populacao()
+pop = Populacao()
 width = 210
 height = 297
 

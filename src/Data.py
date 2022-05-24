@@ -8,7 +8,6 @@ class Data:
         self.titulo = 't'
         self.var_x = 'x'
         self.var_y = 'y'
-        self.index = 0
 
     def data_api_extrator(self, json):
         self.titulo = json[0]['variavel']

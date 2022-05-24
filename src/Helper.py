@@ -2,7 +2,7 @@
 import urllib3
 import json
 import smtplib
-import config
+import Config
 from email.message import EmailMessage
 from datetime import date
 
@@ -13,14 +13,14 @@ def make_json(url: str):
     """get the request from the selected API url, and show if the response is true or false """
 
     http = urllib3.PoolManager()
-    urlPortalApiIBGE = url
-    response = http.request('GET', urlPortalApiIBGE)
+    urlportalapiibge = url
+    response = http.request('GET', urlportalapiibge)
     if response.status == 200:
         print(f"accessing website:\n {url}\n response status: True\n")
     else:
         print(f"accessing website:\n {url}\n response status: False\n")
-    gettedDataJson = json.loads(response.data.decode("utf-8"))
-    return gettedDataJson
+    getteddatajson = json.loads(response.data.decode("utf-8"))
+    return getteddatajson
 
 
 def send_email(addres):
@@ -28,11 +28,11 @@ def send_email(addres):
     login Credentials for sending the e-mail """
 
     msg = EmailMessage()
-    msg["Subject"] = config.subject
-    msg["From"] = config.emailAddres
+    msg["Subject"] = Config.subject
+    msg["From"] = Config.emailAddres
     msg["To"] = addres
     msg.add_header("Content-Type", "text/html")
-    msg.set_payload(config.email_body)
+    msg.set_payload(Config.email_body)
     with open(f'{path}/IBGE-Auctualization-service/src/PDFs/report.pdf', 'rb') as f:
         data = f.read()
 
@@ -41,8 +41,8 @@ def send_email(addres):
     s = smtplib.SMTP('smtp.gmail.com: 587')
     s.starttls()
 
-    s.login(config.emailAddres, config.emailpassword)
-    s.sendmail(config.emailAddres, [addres], msg.as_string().encode('utf-8'))
+    s.login(Config.emailAddres, Config.emailpassword)
+    s.sendmail(Config.emailAddres, [addres], msg.as_string().encode('utf-8'))
     print(f"email enviado para:{addres}")
 
 
