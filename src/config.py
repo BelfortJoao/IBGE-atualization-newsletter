@@ -8,5 +8,5 @@ email_body = f"""
 <p>date:{date.today().day}/{date.today().month}/{date.today().year}</p>
 """
 emailAddres = "IBGEAtualizationService@gmail.com"
-emailpassword = "SenderBotServiceMK1"
+emailpassword = "Password"
 emailsToSend = ["goldchaos216@gmail.com", "h.teteu@gmail.com"]
