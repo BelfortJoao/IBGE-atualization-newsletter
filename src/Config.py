@@ -10,4 +10,4 @@ email_body = f"""
 """
 emailAddres = "IBGEAtualizationService@gmail.com"
 emailpassword = "Password"
-emailsToSend = ["goldchaos216@gmail.com", "h.teteu@gmail.com"]
+emailsToSend = ["goldchaos216@gmail.com", "wellington1belfort@gmail.com"]
