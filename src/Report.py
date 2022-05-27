@@ -1,18 +1,29 @@
+"""Create a report PDF with the images in Images"""
+
+# external libraries
 from fpdf import FPDF
 from datetime import date
+
+# internal libraries
 from Graphs_plot import Populacao
 
+# global variables
 pop = Populacao()
 width = 210
 height = 297
 
 
+# create the title
 def create_title(pdf):
+    """Creates a title for the first page, in this version the code does not have a text"""
+
     pdf.set_font('Times', 'B', 24)
     pdf.ln(55)
     pdf.write(35, "IBGE Analytics Report")
     pdf.ln(10)
     pdf.set_font('Times', '', 20)
+
+    # creates the actual date for the pdf
     if date.today().month == 12:
         pdf.write(35, f'{date.today().day}/{date.today().month}/{date.today().year}')
     else:
@@ -28,7 +39,10 @@ def create_title(pdf):
     pdf.ln(5)
 
 
+# creates the pdf
 def create_pdf():
+    """creates a A4 pdf and save the images in it"""
+
     pdf = FPDF('P', 'mm', 'A4')
     pdf.set_font('Times', 'B', 14)
     '''page 1'''
